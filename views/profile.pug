@@ -1,0 +1,21 @@
+doctype html
+html
+	include includes/head.pug
+	body
+		div.container.full-width
+			h1 Hello #{name}
+
+			if activated == false
+				p 
+					| An activation link has been sent to your email.
+					| Please activate your account to continue.
+					br
+					| Resend Activation 
+					a(href='/resend') Link
+			else
+				h2 Welcome to the world of magic
+
+			p
+				a(href='/reset') Reset Password
+			p
+				a(href='/logout') Logout

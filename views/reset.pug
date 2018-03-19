@@ -1,0 +1,12 @@
+doctype html
+html
+	include includes/head.pug
+	body
+		div.container.full-width
+			h2 Password Reset
+			form(method="post", action="/reset")
+				input(name="email", type="email", placeholder="Email" required)
+				input(name="oldpassword", type="password", placeholder="Old Password" required)
+				input(name="newpassword", type="password", placeholder="New Password" required)
+				div !{captcha}
+				input(value="Submit", type="submit")

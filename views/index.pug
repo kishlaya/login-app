@@ -1,0 +1,30 @@
+doctype html
+html
+	include includes/head.pug
+	body
+		div.wrapper#login
+			h2 Login
+			form(method="post", action="/login")
+				input(name="email", type="email", placeholder="Email" required)
+				input(name="password", type="password", placeholder="Password" required)
+				div !{captcha}
+				input(value="Submit", type="submit")
+				a(href='/reset') Forgot password
+
+		div.container
+			h1 Welcome,
+			p 
+				a(href='#login') Login
+				|  or 
+				a(href='#register') Register
+				|  to proceed
+			p.danger= message
+
+		div.wrapper#register
+			h2 Register
+			form(method="post", action="/register")
+				input(name="name", type="text", placeholder="Name" required)
+				input(name="email", type="email", placeholder="Email" required)
+				input(name="password", type="password", placeholder="Password" required)
+				div !{captcha}
+				input(value="Submit", type="submit")

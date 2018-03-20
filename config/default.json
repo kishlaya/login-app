@@ -1,22 +1,22 @@
 {
     "email": {
-        "host": "YOUR SMTP HOSTING PROVIDER",
-        "port": "SMTP PORT",
+        "host": "process.env.EMAIL_HOST",
+        "port": "process.env.EMAIL_PORT",
         "account": {
-            "user": "LOGIN ID",
-            "pass": "LGOIN PASSWORD"
+            "user": "process.env.LOGIN_ID",
+            "pass": "process.env.LOGIN_PASSWORD"
         }
     },
 
     "captcha": {
-        "SITE_KEY": "GOOGLE RECAPTCHA SITE_KEY",
-        "SECRET_KEY": "GOOGLE RECAPTCHA SITE_KEY"
+        "SITE_KEY": "process.env.SITE_KEY",
+        "SECRET_KEY": "process.env.SITE_KEY"
     },
 
-    "mongodb": "YOUR MONGODB SERVER",
+    "mongodb": "process.env.MONGO_SERVER",
 
     "server": {
-        "domain": "http://127.0.0.1:5000",
-        "port": 5000
+        "domain": "https://login-app-test.herokuapp.com",
+        "port": "process.env.PORT || 5000"
     }
 }

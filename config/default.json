@@ -13,6 +13,8 @@
         "SECRET_KEY": "GOOGLE RECAPTCHA SITE_KEY"
     },
 
+    "mongodb": "YOUR MONGODB SERVER",
+
     "server": {
         "domain": "http://127.0.0.1:5000",
         "port": 5000

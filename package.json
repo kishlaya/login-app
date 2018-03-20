@@ -1,7 +1,7 @@
 {
-  "name": "login",
+  "name": "login-app",
   "version": "1.0.0",
-  "description": "Simple login interface",
+  "description": "A minimal login/register interface using NodeJS backend",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"

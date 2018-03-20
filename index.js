@@ -4,9 +4,9 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
-var config = require('config');
+var env_vars = require('./config/env_vars');
 
-mongoose.connect(config.get('mongodb'));
+mongoose.connect(env_vars.MONGO_SERVER);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Connection Error: '));
 db.once('open', function() {
@@ -41,7 +41,7 @@ app.use(function (err, req, res, next) {
   res.render('error', {message: err.message});
 });
 
-app.set('port', process.env.PORT || 5000);
+app.set('port', env_vars.PORT);
 app.listen(app.get('port'), function() {
 	console.log("Listening on " + app.get('port'));
 });

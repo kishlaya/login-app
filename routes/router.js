@@ -2,9 +2,10 @@ var express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer');
 var User = require('../models/user');
+var env_vars = require('../config/env_vars');
+
 var myCaptcha = require('express-recaptcha');
-var config = require('config');
-var recaptcha = new myCaptcha(config.get('captcha.SITE_KEY'), config.get('captcha.SECRET_KEY'));
+var recaptcha = new myCaptcha(env_vars.SITE_KEY, env_vars.SITE_KEY);
 
 var custom_msg = "";
 router.get('/', recaptcha.middleware.render, function(req, res, next) {
@@ -177,18 +178,18 @@ router.get('/logout', function(req ,res, next) {
 
 function emailUser(user, callback) {
 	var transporter = nodemailer.createTransport({
-		host: config.get('email.host'),
-		port: config.get('email.port'),
+		host: env_vars.EMAIL_HOST,
+		port: env_vars.EMAIL_PORT,
 		auth: {
-			user: config.get('email.account.user'),
-			pass: config.get('email.account.pass')
+			user: env_vars.LOGIN_ID,
+			pass: env_vars.LOGIN_PASSWORD
 		}
 	});
 
-	var link = config.get('server.domain') + '/activate?uid=' + user._id;
+	var link = env_vars.SERVER + '/activate?uid=' + user._id;
 
 	var mailOptions = {
-		from: config.get('email.account.user'),
+		from: env_vars.LOGIN_ID,
 		to: user.email,
 		subject: 'Account activation for Login App',
 		text: link,

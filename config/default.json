@@ -16,7 +16,6 @@
     "mongodb": "process.env.MONGO_SERVER",
 
     "server": {
-        "domain": "https://login-app-test.herokuapp.com",
-        "port": "process.env.PORT || 5000"
+        "domain": "https://login-app-test.herokuapp.com"
     }
 }
